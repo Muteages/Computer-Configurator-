@@ -1,5 +1,5 @@
 # Demo-Unreal
-A configurator made by Unreal
+A computer configurator made by Unreal
 
 # Overview
 
