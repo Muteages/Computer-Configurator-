@@ -10,10 +10,14 @@ public class Game : ModuleRules
 	
 		PublicDependencyModuleNames.AddRange(new string[] { "Core", "CoreUObject", "Engine", "InputCore" });
 
-		PrivateDependencyModuleNames.AddRange(new string[] {  });
+        // AI dependencies
+        PrivateDependencyModuleNames.AddRange(new string[] { "AIModule", "NavigationSystem" });
 
-		// Uncomment if you are using Slate UI
-		PrivateDependencyModuleNames.AddRange(new string[] { "Slate", "SlateCore" });
+        // Gameplay Ability System dependencies
+        PublicDependencyModuleNames.AddRange(new string[] { "GameplayAbilities", "GameplayTags", "GameplayTasks" });
+
+        // Uncomment if you are using Slate UI
+        PrivateDependencyModuleNames.AddRange(new string[] { "Slate", "SlateCore" });
 		
 		// Uncomment if you are using online features
 		// PrivateDependencyModuleNames.Add("OnlineSubsystem");
