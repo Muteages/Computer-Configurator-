@@ -5,6 +5,7 @@
 #include "NavigationSystem.h"
 #include "BehaviorTree/BlackboardComponent.h"
 #include "AIController.h"
+#include "Blueprint/AIBlueprintHelperLibrary.h"
 
 UBTTask_FindRandomLocation::UBTTask_FindRandomLocation()
 {
@@ -28,9 +29,17 @@ EBTNodeResult::Type UBTTask_FindRandomLocation::ExecuteTask(UBehaviorTreeCompone
 
 	// navigation system, find random location
 	const UNavigationSystemV1* NavSystem{ UNavigationSystemV1::GetCurrent(GetWorld()) };
+
 	if (IsValid(NavSystem) && NavSystem->GetRandomPointInNavigableRadius(OriginLocation, SearchRange, Location))
 	{
 		NPCController->GetBlackboardComponent()->SetValueAsVector(BlackboardKey.SelectedKeyName, Location);
+
+		FVector TargetLocation = FVector(1000.f, 1000.f, 0.f);
+
+
+		//NPCController->MoveToLocation(TargetLocation);
+		
+		//UAIBlueprintHelperLibrary::SimpleMoveToLocation(NPCController, TargetLocation);
 	}
 
 	// finish the task with success
