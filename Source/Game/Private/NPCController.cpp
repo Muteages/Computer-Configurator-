@@ -35,13 +35,8 @@ void ANPCController::OnPossess(APawn* InPawn)
 	{
 		NPCBlackboardComponent->InitializeBlackboard((*NPCBehaviorTree.Get()->BlackboardAsset.Get()));
 	}
-	
-	// should call this function but can't get this addDynamic method.
 
-	NPCPerceptionComponent->OnTargetPerceptionUpdated.AddDynamic(this, &ANPCController::OnPerception);
-	
-		//OnTargetPerceptionUpdated.AddDynamic(this, &ANPCController::OnPerception);
-		
+	NPCPerceptionComponent->OnTargetPerceptionUpdated.AddDynamic(this, &ANPCController::OnPerception);			
 }
 
 void ANPCController::OnPerception(AActor* actor, FAIStimulus Stimulus)
